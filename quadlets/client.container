@@ -1,0 +1,16 @@
+[Unit]
+Description=run sable matrix client
+After=network-online.target
+Wants=network-online.target
+
+
+[Container]
+Image=git.sable.moe/sableclient/sable-next:latest
+ContainerName=client
+Volume=/etc/client/config.json:/app/config.json
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

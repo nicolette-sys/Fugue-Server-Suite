@@ -1,0 +1,22 @@
+[Unit]
+Description=run continuwuity matrix homeserver
+After=network-online.target
+Wants=network-online.target
+
+
+
+[Container]
+Image=forgejo.ellis.link/continuwuation/continuwuity:latest
+ContainerName=continuwuity
+Exec=/sbin/conduwuit --execute "users create_user june password"
+Environment=CONTINUWUITY_DATABASE_PATH=/var/lib/continuwuity
+Environment=CONTINUWUITY_CONFIG=/etc/continuwuity.toml
+Environment=CONTINUWUITY_ADDRESS=0.0.0.0
+Volume=/etc/continuwuity/config.toml:/etc/continuwuity.toml
+Volume=/var/lib/continuwuity:/var/lib/continuwuity
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

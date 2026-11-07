@@ -14,14 +14,15 @@ systemd:
 storage:
   disks:
     - device: /dev/vda
-      wipe_table: true
+      wipe_table: false
       partitions:
-        - number: 1
-          label: swap
+        - label: var
   filesystems:
-    - device: /dev/disk/by-partlabel/swap
-      format: swap
-      wipe_filesystem: true
+    - device: /dev/disk/by-partlabel/var
+      label: var
+      format: ext4
+      wipe_filesystem: false
+      path: /var
       with_mount_unit: true
   files:
     - path: /etc/hostname
@@ -35,3 +36,12 @@ storage:
         inline: |
           # Tell systemd to not use a pager when printing information
           export SYSTEMD_PAGER=cat
+    - path: /etc/containers/systemd/caddy.container
+      contents:
+        local: quadlets/caddy.container
+    - path: /etc/containers/systemd/continuwuity.container
+      contents:
+        local: quadlets/caddy.container
+    - path: /etc/containers/systemd/continuwuity.container
+      contents:
+        local: quadlets/continuwuity.container
