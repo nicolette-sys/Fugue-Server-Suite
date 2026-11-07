@@ -1,14 +1,9 @@
 {
   "homeserverList": [
-    "matrix.org",
-    "mozilla.org",
-    "unredacted.org",
-    "sable.moe",
-    "kendama.moe",
-    "hopium.club"
+    "$CLIENT_DOMAIN",
   ],
   "defaultHomeserver": 0,
-  "allowCustomHomeservers": true,
+  "allowCustomHomeservers": false,
   "featuredCommunities": {
     "servers": ["matrixrooms.info", "mozilla.org", "unredacted.org"]
   },

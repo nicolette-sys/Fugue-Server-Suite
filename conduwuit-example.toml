@@ -39,7 +39,7 @@
 # example: "continuwuity.org"
 #
 # env: CONTINUWUITY_SERVER_NAME
-#server_name =
+server_name = $MATRIX_DOMAIN
 
 # The default address (IPv4 or IPv6) continuwuity will listen on.
 #
