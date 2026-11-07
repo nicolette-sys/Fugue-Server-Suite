@@ -24,6 +24,10 @@ storage:
       wipe_filesystem: false
       path: /var
       with_mount_unit: true
+  directories:
+  #create directory for continuwuity database
+  - path: /var/lib/continuwuity
+    overwrite: false
   files:
     - path: /etc/hostname
       mode: 0644
@@ -39,9 +43,21 @@ storage:
     - path: /etc/containers/systemd/caddy.container
       contents:
         local: quadlets/caddy.container
-    - path: /etc/containers/systemd/continuwuity.container
-      contents:
-        local: quadlets/caddy.container
+      overwrite: true
     - path: /etc/containers/systemd/continuwuity.container
       contents:
         local: quadlets/continuwuity.container
+      overwrite: true
+    - path: /etc/containers/systemd/client.container
+      contents:
+        local: quadlets/client.container
+      overwrite: true
+    - path: /etc/caddy/Caddyfile
+      contents:
+        local: ./Caddyfile
+    - path: /etc/client/config.json
+      contents:
+        local: ./config.json
+    - path: /etc/continuwuity/config.toml
+      contents:
+        local: ./conduwuit-example.toml
