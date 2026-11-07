@@ -1,0 +1,7 @@
+$MATRIX_DOMAIN, $MATRIX_DOMAIN:8448 {
+    reverse_proxy continuwuity:8008
+}
+
+$CLIENT_DOMAIN {
+    reverse_proxy client:8080
+}
