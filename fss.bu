@@ -13,7 +13,7 @@ systemd:
           ExecStart=-/usr/sbin/agetty --autologin core --noclear %I $TERM
 storage:
   disks:
-    - device: /dev/sdb
+    - device: /dev/vda
       wipe_table: true
       partitions:
         - number: 1
